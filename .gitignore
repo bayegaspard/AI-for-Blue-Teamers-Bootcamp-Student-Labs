@@ -1,0 +1,22 @@
+# Secrets / local config
+.env
+*.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Lab output
+loot/
+output/
+*.log.out
+capstone_submissions/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Office lock files
+~$*
