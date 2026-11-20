@@ -20,7 +20,14 @@ controls:
 
 Fire any of these with the driver: `python3 inject.py --payload <name> --mode <mode>`
 (see [`inject.py`](inject.py)). Expected outputs below are the **deterministic mock**
-outputs; the real 8B model varies in wording but behaves the same way.
+outputs.
+
+> **Real models behave differently.** Measured results on `llama3.1:8b`, `llama3.2:3b` and
+> `llama3.2:1b` are in [`../RESULTS.md`](../RESULTS.md). In short: blunt payloads
+> (`prompt-leak`, `jailbreak`, `indirect-ua-blatant`, `indirect-ssh`) are mostly refused by a
+> real model; the subtle ones (`indirect-ua`, `authorized-scanner`, `format-only`,
+> `audit-leak`) are what land. `indirect-ua` is now the subtle User-Agent payload; the old
+> blatant one (poisoned.log line 4, section 5 below) is `indirect-ua-blatant`.
 
 ---
 

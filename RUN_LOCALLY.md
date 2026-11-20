@@ -151,6 +151,7 @@ Keep these containers on your own machine. They are vulnerable on purpose. See
 |---|---|
 | `[FAIL]` from `ollama_client.py --health` | Option A: is the Ollama app running? Try `ollama list`. Option B: is Docker running, and did `scripts/lab_up.sh core` finish? |
 | The health check passes but a lab says the model is missing | `OLLAMA_MODEL` in `.env` must match a name from `ollama list` exactly. |
+| `HTTP Error 404` from a lab even though `ollama list` shows the model | Another Ollama (often a Docker container) is also listening on 11434 and `localhost` reaches it instead. Set `OLLAMA_HOST=http://127.0.0.1:11434`, or stop the container. |
 | The first answer times out | The model is still loading. Run the command again. |
 | `port is already allocated` on 11434 | Ollama already uses that port. The mock uses 11435 for that reason; change `MOCK_OLLAMA_PORT` in `.env` if 11435 is also taken. |
 | Wazuh checks fail | Expected at home. Use the dataset path for that lab. |
